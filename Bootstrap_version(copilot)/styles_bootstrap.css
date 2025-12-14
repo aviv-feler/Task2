@@ -1,0 +1,137 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+.box {
+  border: 2px solid red;
+  background: #fff;
+}
+
+/* MOBILE: everything stacks vertically, full width */
+.layout-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.sidebar-col, .main-col {
+  width: 100%;
+}
+
+.row-1, .row-2, .row-3 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.row-1 > div, .row-2 > *, .row-3 > div {
+  width: 100%;
+}
+
+.left-section, .right-section {
+  width: 100%;
+}
+
+.left-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-section > div {
+  width: 100%;
+}
+
+/* Mobile heights */
+.side { height: 10vh; }
+.small { height: 10vh; }
+.midleft { height: 10vh; }
+.midright { height: 10vh; }
+.downleft { height: 10vh; }
+.downright { height: 10vh; }
+
+/* DESKTOP: min-width 751px */
+@media (min-width: 751px) {
+  .layout-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    min-height: 95vh;
+    height: 95vh;
+  }
+
+  .sidebar-col {
+    flex: 0 0 20%;
+    max-width: 20%;
+    width: 20%;
+  }
+
+  .main-col {
+    flex: 0 0 80%;
+    max-width: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Row 1: 4 equal boxes (25% each) */
+  .row-1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .row-1 > div {
+    flex: 0 0 calc(25% - 6px);
+    width: calc(25% - 6px);
+  }
+
+  /* Row 3: 65% / 35% */
+  .row-3 {
+    display: flex;
+    gap: 8px;
+  }
+
+  .row-3 > div:first-child {
+    flex: 0 0 calc(65% - 4px);
+    width: calc(65% - 4px);
+  }
+
+  .row-3 > div:last-child {
+    flex: 0 0 calc(35% - 4px);
+    width: calc(35% - 4px);
+  }
+
+  /* Desktop heights */
+  .side { height: 95vh; }
+  .small { height: 200px; }
+  .downleft { height: 180px; }
+  .downright { height: 180px; }
+}
+
+@media screen and (min-width: 751px){
+  .row2{ 
+    display:flex; 
+    gap:12px; 
+    margin:12px;
+    align-items: stretch;
+    flex: 1;
+  }
+  .row2-left{ 
+    flex:0 0 50%; 
+    display:flex; 
+    flex-direction:column; 
+    gap:12px;
+  }
+  .row2-right{ 
+    flex:0 0 50%;
+    display: flex;
+  }
+  .row2-left .box {
+    flex: 1;
+  }
+  .row2-right .box {
+    width: 100%;
+    height: 100%;
+  }
+  .midleft{ height: auto; }
+  .midright{ height: 100%; }
+}
