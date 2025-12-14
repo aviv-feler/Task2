@@ -3,68 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 2 - HTML & CSS</title>
+    <title>Task 2 - עיצוב מודרני</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* איפוס סגנונות בסיסי */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5; /* צבע רקע בהיר */
-            margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            /* רקע גרדיאנט מודרני */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* גובה מלא של המסך */
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
         }
 
         .container {
-            background-color: #ffffff; /* רקע לבן לכרטיס */
-            padding: 40px;
-            border-radius: 12px; /* פינות עגולות */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* צל עדין */
+            /* אפקט זכוכית (Glassmorphism) */
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 400px;
-            width: 90%;
+            max-width: 420px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         h1 {
-            color: #333;
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            /* טקסט עם גרדיאנט */
+            background: linear-gradient(to right, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         ul {
-            list-style-type: none; /* הסרת בוליטים */
-            padding: 0;
-            margin: 0;
+            list-style-type: none;
         }
 
         li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        /* עיצוב הקישורים ככפתורים */
+        /* עיצוב הכפתורים החדש */
         a.link-btn {
-            display: block;
-            width: 100%;
-            padding: 12px 20px;
-            background-color: #007bff; /* צבע כחול יפה */
-            color: white;
-            text-decoration: none; /* הסרת קו תחתון */
-            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* יישור לשמאל בשביל האייקון */
+            padding: 15px 25px;
+            background: #fff;
+            color: #4a5568;
+            text-decoration: none;
+            border-radius: 12px;
             font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* אנימציה חלקה */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid transparent;
         }
 
-        /* אפקט בעת מעבר עכבר */
+        /* הוספת מרווח לאייקון */
+        a.link-btn i {
+            margin-left: 12px;
+            font-size: 1.2rem;
+            color: #667eea; /* צבע האייקון */
+        }
+
+        /* אפקט ריחוף */
         a.link-btn:hover {
-            background-color: #0056b3; /* כחול כהה יותר */
-            transform: translateY(-2px); /* הרמה קלה */
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: transparent;
+        }
+        
+        /* שינוי צבע האייקון בריחוף */
+        a.link-btn:hover i {
+            color: white;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8); /* צבע בהיר שיתאים לרקע הכהה */
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+        }
+        
+        .footer strong {
+             color: white;
         }
     </style>
 </head>
@@ -73,11 +116,26 @@
     <div class="container">
         <h1>Task 2 – HTML & CSS</h1>
         <ul>
-            <li><a href="page1-manual.html" class="link-btn">i. דף CSS Plain ידני</a></li>
-            <li><a href="CSS plain (copilot)/index_copilot.html" class="link-btn">ii. דף CSS Plain (Copilot)</a></li>
-            <li><a href="page3-flex.html" class="link-btn">iii. דף FLEX (Copilot)</a></li>
-            <li><a href="page4-bootstrap.html" class="link-btn">iv. דף Bootstrap (Copilot)</a></li>
-            
+            <li>
+                <a href="page1-manual.html" class="link-btn">
+                    <i class="fas fa-code"></i> i. דף CSS Plain ידני
+                </a>
+            </li>
+            <li>
+                <a href="CSS plain (copilot)/index_copilot.html" class="link-btn">
+                    <i class="fas fa-robot"></i> ii. דף CSS Plain (Copilot)
+                </a>
+            </li>
+            <li>
+                <a href="page3-flex.html" class="link-btn">
+                    <i class="fab fa-css3-alt"></i> iii. דף FLEX (Copilot)
+                </a>
+            </li>
+            <li>
+                <a href="page4-bootstrap.html" class="link-btn">
+                    <i class="fab fa-bootstrap"></i> iv. דף Bootstrap (Copilot)
+                </a>
+            </li>
         </ul>
     </div>
     <div class="footer">
