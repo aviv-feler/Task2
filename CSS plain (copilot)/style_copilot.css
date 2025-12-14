@@ -1,0 +1,163 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 10px;
+}
+
+/* Main container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 3px solid rgb(243, 0, 0);
+  padding: 10px;
+}
+
+/* Clearfix for floats */
+.container::after,
+.row::after,
+.main-content::after,
+.stacked-boxes::after,
+.row2-3::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Sidebar */
+.sidebar {
+  float: left;
+  width: 15%;
+  padding: 5px;
+}
+
+.sidebar-box {
+  width: 100%;
+  height: 380px;
+  border: 3px solid rgb(226, 1, 1);
+}
+
+/* Main content area */
+.main-content {
+  float: left;
+  width: 85%;
+  padding: 5px;
+}
+
+/* Row styling */
+.row {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+/* Box base styling */
+.box {
+  float: left;
+  border: 3px solid rgb(226, 3, 3);
+  margin: 5px;
+}
+
+/* Row 1 - Four equal boxes */
+.row1 .box-small {
+  width: calc(25% - 10px);
+  height: 100px;
+}
+
+/* Rows 2-3 - Tall box on right + stacked boxes on left */
+.row2-3 {
+  margin-bottom: 10px;
+}
+
+.box-tall {
+  float: right;
+  width: calc(33.33% - 10px);
+  height: 170px;
+}
+
+.stacked-boxes {
+  float: left;
+  width: 66.66%;
+}
+
+.stacked-boxes .box-wide {
+  width: calc(100% - 10px);
+  height: 75px;
+  margin-bottom: 10px;
+}
+
+.stacked-boxes .box-wide:last-child {
+  margin-bottom: 5px;
+}
+
+/* Row 4 - Medium and wide boxes */
+.row4 .box-medium {
+  width: calc(33.33% - 10px);
+  height: 80px;
+}
+
+.row4 .box-wide {
+  width: calc(66.66% - 10px);
+  height: 80px;
+}
+
+/* ==========================================
+   Media Query - Responsive for 750px and below
+   ========================================== */
+@media screen and (max-width: 750px) {
+  /* Container becomes block */
+  .container {
+    display: block;
+  }
+
+  /* Sidebar becomes full width */
+  .sidebar {
+    display: block;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .sidebar-box {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  /* Main content becomes full width */
+  .main-content {
+    display: block;
+    width: 100%;
+  }
+
+  /* All boxes stack vertically */
+  .box {
+    float: none;
+    width: calc(100% - 10px);
+    margin: 5px;
+  }
+
+  .row1 .box-small,
+  .box-tall,
+  .stacked-boxes .box-wide,
+  .row4 .box-medium,
+  .row4 .box-wide {
+    width: calc(100% - 10px);
+    height: 80px;
+  }
+
+  .stacked-boxes {
+    float: none;
+    width: 100%;
+  }
+
+  .box-tall {
+    float: none;
+  }
+}
