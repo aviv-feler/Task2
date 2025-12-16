@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>flex</title>
+  <link rel="stylesheet" href="FLEX_COPILOT.css" />
+</head>
+<body>
+
+  <div class="layout cf">
+
+    <!-- Left tall block -->
+    <aside class="sidebar col">
+      <div class="box tall"></div>''
+    </aside>
+
+    <!-- Right content -->
+    <main class="main">
+
+      <!-- Row 1: 4 small boxes -->
+      <section class="row cf">
+        <div class="col w25"><div class="box small"></div></div>
+        <div class="col w25"><div class="box small"></div></div>
+        <div class="col w25"><div class="box small"></div></div>
+        <div class="col w25"><div class="box small"></div></div>
+      </section>
+
+      <!-- Row 2: left column (2 bars) + right big -->
+      <section class="row cf">
+        <div class="col w50">
+          <div class="box bar"></div>
+          <div class="box bar"></div>
+        </div>
+
+        <div class="col w50">
+          <div class="box medium mid-right"></div>
+        </div>
+      </section>
+
+      <!-- Row 3: left wide + right box -->
+      <section class="row cf">
+        <div class="col w70"><div class="box large"></div></div>
+        <div class="col w30"><div class="box medium"></div></div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
