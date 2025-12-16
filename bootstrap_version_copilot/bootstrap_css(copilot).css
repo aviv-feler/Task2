@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.box {
+  border: 2px solid red;
+  width: 100%;
+}
+
+/* ---------- MOBILE ---------- */
+.side { height: 90px; }
+
+/* BIG wrapper should NOT have fixed height on mobile */
+.big { height: auto; }
+
+/* all inner boxes on mobile */
+.small,
+.midleft,
+.midright,
+.downleft,
+.downright {
+  height: 90px;
+}
+
+/* ---------- DESKTOP ---------- */
+@media (min-width: 750px) {
+
+  .side {
+    height: 100%;
+  }
+
+  .small {
+    height: 180px;
+  }
+
+  .midleft {
+    height: 180px;
+  }
+
+  .midright {
+    height: 360px;
+  }
+
+  .downleft,
+  .downright {
+    height: 180px;
+  }
+}
