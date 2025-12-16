@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flex - same classes</title>
+  <link rel="stylesheet" href="styles_flex1.css">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="box side"></div>
+
+  <!-- Main content -->
+  <div class="box big">
+
+    <!-- Row 1: 4 small boxes -->
+    <div class="row row-top">
+      <div class="box small"></div>
+      <div class="box small"></div>
+      <div class="box small"></div>
+      <div class="box small"></div>
+    </div>
+
+    <!-- Row 2: left column (2 midleft stacked) + right big midright -->
+    <div class="row row-mid">
+      <div class="col-left">
+        <div class="box midleft"></div>
+        <div class="box midleft"></div>
+      </div>
+
+      <div class="col-right">
+        <div class="box midright"></div>
+      </div>
+    </div>
+
+    <!-- Row 3: downleft + downright -->
+    <div class="row row-bottom">
+      <div class="box downleft"></div>
+      <div class="box downright"></div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* ========== Reset ========== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; }
+
+/* ========== Common box styling (same as plain) ========== */
+.box{
+  border: 2px solid red;
+  background: transparent;
+}
+
+/* ========== Main layout: side + big (Flex) ========== */
+/* IMPORTANT:
+   The page is RTL (dir="rtl"), but we want the layout order to behave LTR
+   (so it won't look mirrored). */
+body{
+  display: flex;
+  align-items: stretch;
+  height: 95vh;           /* same goal as plain */
+  direction: ltr;         /* prevents "mirror" behavior */
+}
+
+/* Sidebar */
+.side{
+  flex: 0 0 20%;
+  height: 95vh;
+}
+
+/* Content area */
+.big{
+  flex: 1 1 auto;
+  height: 95vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.5%;
+  gap: 1%;
+  min-width: 0;           /* prevents overflow issues */
+}
+
+/* ========== Rows ========== */
+.row{
+  display: flex;
+  gap: 1%;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Keep the same "proportions" as the plain layout (roughly) */
+.row-top{ flex: 33; }
+.row-mid{ flex: 32; }
+.row-bottom{ flex: 30; }
+
+/* ========== Row 1: 4 small boxes ========== */
+.small{
+  flex: 1 1 0;
+  height: 100%;
+  min-width: 0;
+}
+
+/* ========== Row 2: 2 stacked midleft + 1 tall midright ========== */
+.col-left{
+  flex: 0 0 49%;
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+  min-width: 0;
+}
+
+.col-right{
+  flex: 0 0 49%;
+  display: flex;
+  min-width: 0;
+}
+
+/* the two midleft boxes share the left column equally */
+.midleft{
+  flex: 1 1 0;
+  width: 100%;
+}
+
+/* the midright is one tall box on the right */
+.midright{
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== Row 3: 65/35 ========== */
+.downleft{
+  flex: 0 0 65%;
+  height: 100%;
+  min-width: 0;
+}
+
+.downright{
+  flex: 0 0 33%;
+  height: 100%;
+  min-width: 0;
+}
+
+/* ========== Responsive (same logic as plain) ========== */
+/* Responsive */
+@media screen and (max-width: 750px){
+
+  /* Stack sidebar above content */
+  body{
+    flex-direction: column;
+    height: auto;
+    direction: rtl; /* optional */
+  }
+
+  .side{
+    flex: none;
+    width: 100%;
+    height: 10vh;
+  }
+
+  .big{
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 0.5%;
+    gap: 0; /* disable flex gaps in mobile */
+  }
+
+  /* IMPORTANT: disable desktop flex layout inside the content */
+  .row,
+  .col-left,
+  .col-right{
+    display: block;
+    width: 100%;
+  }
+
+  /* Cancel the desktop row flex sizing */
+  .row-top,
+  .row-mid,
+  .row-bottom{
+    flex: none;
+  }
+
+  /* Make every box full-width and consistent height */
+  .small,
+  .midleft,
+  .midright,
+  .downleft,
+  .downright{
+    width: 100%;
+    height: 10vh;
+    margin: 0.5% 0;
+  }
+
+  /* Remove any width constraints from desktop columns */
+  .col-left,
+  .col-right{
+    width: 100%;
+  }
+}
